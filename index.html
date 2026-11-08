@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Medou Netjer</title>
+    <meta name="description" content="Apprendre l’égyptien du Moyen Empire : ses signes, ses mots, sa grammaire, puis de vraies phrases." />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F3ECDD" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0F0E0C" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Medou Netjer" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="format-detection" content="telephone=no" />
+    <style id="expo-reset">
+      html,
+      body {
+        height: 100%;
+      }
+      /* An app, not a page: no body scroll, no rubber band, no double-tap zoom, no text selection or long-press menu. */
+      body {
+        margin: 0;
+        overflow: hidden;
+        overscroll-behavior: none;
+        background: #f3ecdd;
+        touch-action: manipulation;
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+      }
+      @media (prefers-color-scheme: dark) {
+        body {
+          background: #0f0e0c;
+        }
+      }
+      #root {
+        display: flex;
+        height: 100%;
+        flex: 1;
+      }
+    </style>
+    <link rel="manifest" href="/medou-netjer/manifest.json" />
+    <link rel="apple-touch-icon" href="/medou-netjer/apple-touch-icon.png" />
+    <script>
+      if ('serviceWorker' in navigator) {
+        addEventListener('load', () => {
+          navigator.serviceWorker
+            .register('/medou-netjer/sw.js', { scope: '/medou-netjer/' })
+            .then((reg) => {
+              // A new version is fetched in the background when the app comes back to the front.
+              document.addEventListener('visibilitychange', () => {
+                if (document.visibilityState === 'visible') reg.update().catch(() => undefined);
+              });
+            })
+            .catch(() => undefined);
+        });
+      }
+    </script>
+  <link rel="icon" href="/medou-netjer/favicon.ico"/></head>
+
+  <body>
+    <noscript>Medou Netjer a besoin de JavaScript.</noscript>
+    <div id="root"></div>
+  <script src="/medou-netjer/_expo/static/js/web/__expo-metro-runtime-8c088df87a31e4e6accd81c554ec290d.js" defer></script><script src="/medou-netjer/_expo/static/js/web/__common-0941adf8b92e3069d9419cddf6462fcc.js" defer></script><script src="/medou-netjer/_expo/static/js/web/entry-a71e07d69f2a11dc625bd09bd804fae0.js" defer></script>
+</body>
+</html>
